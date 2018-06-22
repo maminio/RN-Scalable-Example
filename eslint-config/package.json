@@ -1,0 +1,49 @@
+{
+  "name": "eslint-config",
+  "version": "0.1.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "javascript",
+    "styleguide"
+  ],
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint-find-rules": "^3.1.1",
+    "eslint-import-resolver-babel-module-alias": "^1.5.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-restricted-globals": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true,
+        "globalReturn": true,
+        "impliedStrict": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    }
+  },
+  "engines": {
+    "node": ">= 8"
+  }
+}
