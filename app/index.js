@@ -1,58 +1,61 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import PropType from 'prop-types';
+import { View } from 'react-native';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-type Props = {};
-export default class App extends Component<Props> {
+// Modules
+import { Provider, connect } from 'react-redux';
+import { createStackNavigator } from 'react-navigation';
+// AppScenes
+import AppScenes from 'app/scenes';
+// Redux-Store
+import configureStore from 'app/config/store';
+
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+
+    }
+
     render() {
         return (
-          <View style={styles.container}>
-              <Text style={styles.welcome}>
-                  Welcome to React Native!
-              </Text>
-              <Text style={styles.instructions}>
-                  To get started, edit App.js
-              </Text>
-              <Text style={styles.instructions}>
-                  {instructions}
-              </Text>
-          </View>
+            <View
+                style={{ flex: 1, backgroundColor: 'white' }}
+            >
+            </View>
+        );
+    }
+}
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = {
+};
+
+
+const AppCompose = connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+class Fantastic extends Component {
+    constructor(props) {
+        super(props);
+        const { store } = configureStore();
+        this.state = {
+            store,
+        };
+    }
+
+    render() {
+        return (
+            <Provider store={this.state.store}>
+                <AppCompose />
+            </Provider>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
+export default Fantastic;
