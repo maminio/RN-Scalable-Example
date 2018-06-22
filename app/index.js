@@ -12,6 +12,16 @@ import AppScenes from 'app/scenes';
 import configureStore from 'app/config/store';
 
 
+// const AppNavigator = createStackNavigator(AppScenes, {
+//     headerMode: 'none',
+//     cardStyle: {
+//         backgroundColor: 'transparent',
+//     },
+// });
+//
+// const InitialScene = 'Gallery';
+
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +32,12 @@ class App extends Component {
     }
 
     render() {
+        this.navigation = addNavigationHelpers({
+            dispatch: this.props.dispatch,
+            route: this.props.navigation,
+            state: this.props.navigation,
+        });
+
         return (
             <View
                 style={{ flex: 1, backgroundColor: 'white' }}
