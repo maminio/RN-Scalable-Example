@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 // Modules
 import { connect } from 'react-redux';
@@ -42,14 +42,22 @@ class Home extends Component {
     componentWillReceiveProps(/* nextProps */) {
     }
 
+    renderPhotoScroller() {
+        return (
+            <FlatList />
+        );
+    }
+
     render() {
         return (
-            <View />
+            <View style={{ flex: 1, backgroundColor: 'red' }}>
+                {this.renderPhotoScroller()}
+            </View>
         );
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {

@@ -1,76 +1,47 @@
 import React, { Component } from 'react';
-import PropType from 'prop-types';
-import { View } from 'react-native';
-
-
-// Modules
-import { Provider, connect } from 'react-redux';
-import { createStackNavigator } from 'react-navigation';
-// AppScenes
-import AppScenes from 'app/scenes';
-// Redux-Store
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from 'app/scenes';
 import configureStore from 'app/config/store';
+import { Provider } from 'react-redux';
+import NavigationConfig from 'app/config/Navigation';
+
+const { store } = configureStore();
+registerScreens(store, Provider);
 
 
-// const AppNavigator = createStackNavigator(AppScenes, {
-//     headerMode: 'none',
-//     cardStyle: {
-//         backgroundColor: 'transparent',
-//     },
-// });
-//
-// const InitialScene = 'Gallery';
-
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-
-    }
-
-    render() {
-        this.navigation = addNavigationHelpers({
-            dispatch: this.props.dispatch,
-            route: this.props.navigation,
-            state: this.props.navigation,
-        });
-
-        return (
-            <View
-                style={{ flex: 1, backgroundColor: 'white' }}
-            >
-            </View>
-        );
-    }
-}
-const mapStateToProps = state => ({
-});
-
-const mapDispatchToProps = {
+const startDefaultLoadingApp = (config) => {
+    Navigation.startSingleScreenApp(config);
 };
 
+const startTabbarApp = (config) => {
+    Navigation.startTabBasedApp(config);
+};
 
-const AppCompose = connect(mapStateToProps, mapDispatchToProps)(App);
+const startOnboarding = (config) => {
+    Navigation.startSingleScreenApp(config);
+};
 
 
 class Fantastic extends Component {
     constructor(props) {
         super(props);
-        const { store } = configureStore();
-        this.state = {
-            store,
-        };
+        this.unSubscribe = store.subscribe(() => this.storeListener());
+        this.navConfig = new NavigationConfig();
+        this.navConfig.defaultLoading.then((config) => {
+            startDefaultLoadingApp(config);
+        });
+        this.appDidLoadWithLoading = false;
     }
 
-    render() {
-        return (
-            <Provider store={this.state.store}>
-                <AppCompose />
-            </Provider>
-        );
+    storeListener() {
+        const { boot } = store.getState().app;
+        if (!boot.startupLoading && !this.appDidLoadWithLoading) {
+            this.appDidLoadWithLoading = true;
+            this.unSubscribe();
+            this.navConfig.initApp.then((config) => {
+                startTabbarApp(config);
+            });
+        }
     }
 }
 

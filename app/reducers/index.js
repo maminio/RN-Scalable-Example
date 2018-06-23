@@ -5,7 +5,6 @@ export default (reducers) => {
     /**
      * Combine All Reducers
      */
-
     const appReducer = combineReducers({
         ...reducers,
         app: combineReducers({ ...app }),
@@ -16,7 +15,16 @@ export default (reducers) => {
             case 'RESET_REDUX':
                 return appReducer(undefined, action);
             case 'persist/REHYDRATE':
-                return appReducer(state, action);
+                return appReducer({
+                    ...state,
+                    app: {
+                        ...state.app,
+                        boot: {
+                            ...state.app.boot,
+                            startupLoading: false,
+                        },
+                    },
+                }, action);
             default:
                 break;
         }

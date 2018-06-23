@@ -3,6 +3,7 @@ import * as actionTypes from 'app/actions/constants';
 export const initialState = {
     bootedSuccessful: false,
     bootTime: null,
+    startupLoading: true,
 };
 
 export default (state = initialState, action) => {

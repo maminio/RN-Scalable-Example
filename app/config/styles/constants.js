@@ -6,8 +6,18 @@ export const COLOR_WHITE_TRANSPARENT = 'rgba(255,255,255,0.5)';
 export const COLOR_WHITE_SUPER_TRANSPARENT = 'rgba(255,255,255,0.12)';
 
 export const COLOR_BLACK = 'rgb(0,0,0)';
-export const COLOR_GREY = 'rgb(179,183,193)';
 
+
+export const COLOR_GREY = 'rgb(179,183,193)';
+export const COLOR_GRAY_BLUE = 'rgb(90,97,117)';
+
+export const COLOR_BLUE_DARK = 'rgb(13,19,54)';
+
+export const COLOR_GREEN_HOT = 'rgb(83,229,141)';
+
+export const TAB_BAR_COLOR = COLOR_BLUE_DARK;
+export const TAB_BAR_SELECTED_ICON = COLOR_GREEN_HOT;
+export const TAB_BAR_ICON = COLOR_GRAY_BLUE;
 
 // Font size
 export const FONT_SIZE_TITLE = 20;
@@ -53,3 +63,5 @@ export const TOP_NAVIGATION_HEIGHT = 44;
 export const TOP_NAVIGATION_TOTAL_HEIGHT = STATUS_BAR_HEIGHT + TOP_NAVIGATION_HEIGHT;
 export const BOTTOM_NAVIGATION_HEIGHT = 48;
 export const NOTCH = 30;
+
+

@@ -24,8 +24,6 @@ export default function configureStore(reducers) {
         debounce: AppConfig.persistStore.debounce,
         key: AppConfig.persistStore.key,
         storage: AsyncStorage,
-        whitelist: ['settings'],
-        blacklist: ['navigation'],
     };
 
     const persistedReducer = persistReducer(persistConfig, configureReducer(reducers));
