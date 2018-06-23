@@ -27,7 +27,7 @@ export default class NavigationConfig {
                 tabBarBackgroundColor: AppStyles.TAB_BAR_COLOR,
                 tabBarSelectedLabelColor: AppStyles.TAB_BAR_SELECTED_ICON,
                 tabBarTranslucent: true,
-                initialTabIndex: 1,
+                initialTabIndex: 0,
 
             },
             appStyle: {

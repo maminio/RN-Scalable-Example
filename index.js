@@ -1,10 +1,7 @@
 import { AppRegistry } from 'react-native';
 import App from './app/index';
 
-const app = new App();
+const Fantastic = new App();
 
-// AppRegistry.registerComponent('Fantastic', () => {
-//     console.log(' JJJJSI')
-//     return Fantastic
-// });
+AppRegistry.registerComponent('Fantastic', Fantastic);
 

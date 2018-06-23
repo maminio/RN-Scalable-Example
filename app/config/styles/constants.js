@@ -4,7 +4,7 @@ import AppConfig from '../index';
 export const TRANSPARENT = 'transparent';
 export const COLOR_WHITE_TRANSPARENT = 'rgba(255,255,255,0.5)';
 export const COLOR_WHITE_SUPER_TRANSPARENT = 'rgba(255,255,255,0.12)';
-
+export const COLOR_WHITE = 'rgb(255,255,255)';
 export const COLOR_BLACK = 'rgb(0,0,0)';
 
 
