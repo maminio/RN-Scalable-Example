@@ -21,9 +21,7 @@ import AppAssets from 'app/assets';
 // Constants
 const CARDS_MARGIN = 12;
 const CARD_WIDTH = (AppConfig.window.width / 2);
-const CARD_HEIGHT = (AppConfig.window.height / 2);
 const CARD_OFFSET = (AppConfig.window.width - CARD_WIDTH) / 2;
-const FLAT_LIST_INTERVAL = CARD_WIDTH + (CARDS_MARGIN * 2);
 
 const DATA = [
     {
@@ -58,6 +56,7 @@ const calculateIndex = scrollX => Math.floor((scrollX._value + CARD_OFFSET) / (C
 class Market extends Component {
     static componentName = 'Market';
     static propTypes = {
+        navigator: PropTypes.any,
     };
 
     static defaultProps = {

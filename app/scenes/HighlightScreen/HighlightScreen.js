@@ -23,6 +23,7 @@ import styles from './styles';
 class HighlightScreen extends Component {
     static componentName = 'HighlightScreen';
     static propTypes = {
+        onClosePress: PropTypes.func,
     };
 
     static defaultProps = {

@@ -3,7 +3,6 @@ import { tabs } from 'app/scenes/index';
 import AppStyles from 'app/config/styles/index';
 
 export default class NavigationConfig {
-
     generateAllTabs() {
         const { navigatorStyle } = this;
         return Object.keys(tabs).map(key => ({
@@ -27,8 +26,8 @@ export default class NavigationConfig {
                 tabBarBackgroundColor: AppStyles.TAB_BAR_COLOR,
                 tabBarSelectedLabelColor: AppStyles.TAB_BAR_SELECTED_ICON,
                 tabBarTranslucent: true,
-                initialTabIndex: 1,
-                keepStyleAcrossPush: false
+                initialTabIndex: 0,
+                keepStyleAcrossPush: false,
 
             },
             appStyle: {
@@ -37,12 +36,12 @@ export default class NavigationConfig {
                 navBarHidden: true,
                 screenBackgroundColor: 'transparent',
                 modalPresentationStyle: 'overCurrentContext',
-                keepStyleAcrossPush: false
+                keepStyleAcrossPush: false,
             },
             navigatorStyle: {
                 modalPresentationStyle: 'overCurrentContext',
                 screenBackgroundColor: 'transparent',
-                keepStyleAcrossPush: false
+                keepStyleAcrossPush: false,
 
             },
         };

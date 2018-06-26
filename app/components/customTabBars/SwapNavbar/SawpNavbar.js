@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Animated, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 // Modules
 // Actions
@@ -17,17 +17,12 @@ import styles from './styles';
 // Constants
 
 class SwapNavbar extends Component {
-
     static propTypes = {
         onNextPress: PropTypes.func,
     };
 
     static defaultProps = {
     };
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -90,7 +85,7 @@ class SwapNavbar extends Component {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                             }}
-                            onPress={()=>{
+                            onPress={() => {
                                 this.props.onNextPress();
                             }}
                         >

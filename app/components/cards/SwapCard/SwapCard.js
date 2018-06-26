@@ -20,6 +20,9 @@ class SwapCard extends Component {
     static propTypes = {
         cardWidth: PropTypes.number,
         cardHeight: PropTypes.number,
+        textAnimated: PropTypes.any,
+        name: PropTypes.string,
+        photo: PropTypes.any,
     };
 
     static defaultProps = {

@@ -25,6 +25,9 @@ const IMAGE_CARD_WIDTH = AppConfig.window.width / 4;
 
 class AlbumCard extends Component {
     static propTypes = {
+        onCardPress: PropTypes.func,
+        photo: PropTypes.any,
+        name: PropTypes.string,
     };
 
     static defaultProps = {

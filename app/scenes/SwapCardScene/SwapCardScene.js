@@ -26,6 +26,8 @@ const CARD_CENTER_HEIGHT = (AppConfig.window.height / 2) - CARD_HEIGHT;
 class SwapCardScene extends Component {
     static componentName = 'SwapCardScene';
     static propTypes = {
+        navigator: PropTypes.any,
+        item: PropTypes.object,
     };
 
     static defaultProps = {
@@ -33,10 +35,6 @@ class SwapCardScene extends Component {
 
     constructor(props) {
         super(props);
-        // props.navigator.toggleNavBar({
-        //     to: 'show',
-        //     animated: false,
-        // });
         this.state = {
             cardStart: new Animated.Value(0),
         };

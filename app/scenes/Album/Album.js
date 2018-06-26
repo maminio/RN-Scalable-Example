@@ -7,16 +7,17 @@ import { connect } from 'react-redux';
 
 // Actions
 // Components
+import AlbumCard from 'app/components/cards/AlbumCard/AlbumCard';
 // Helpers
 
 // Config & Styling
 import AppConfig from 'app/config';
 import AppStyle from 'app/config/styles';
+import AppAssets from 'app/assets';
 
 // Local Relatives
 import styles from './styles';
-import AppAssets from 'app/assets';
-import AlbumCard from 'app/components/cards/AlbumCard/AlbumCard';
+
 
 // Constants
 
@@ -39,6 +40,8 @@ const DATA = [
 class Album extends Component {
     static componentName = 'Album';
     static propTypes = {
+        navigator: PropTypes.any,
+
     };
 
     static defaultProps = {
@@ -69,8 +72,9 @@ class Album extends Component {
                     padding: AppStyle.PADDING,
                 }}
             >
-                {DATA.map(item => (
+                {DATA.map((item,index) => (
                     <AlbumCard
+                        key={`${index}`}
                         {...item}
                         onCardPress={() => {
                             this.props.navigator.showModal({
@@ -100,7 +104,7 @@ class Album extends Component {
                 style={{
                     backgroundColor: AppStyle.COLOR_BLUE_DARK,
                     flex: 1,
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                 }}
             >
                 {this.renderCards()}

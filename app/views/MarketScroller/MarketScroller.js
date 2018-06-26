@@ -28,12 +28,11 @@ const FLAT_LIST_INTERVAL = CARD_WIDTH + (CARDS_MARGIN * 2);
 const keyExtractor = (item, index) => `MarketScroller${index}`;
 
 
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
 class MarketScroller extends Component {
     static propTypes = {
         onCardPress: PropTypes.func,
         scrollX: PropTypes.any,
+        data: PropTypes.array.isRequired,
     };
 
     static defaultProps = {
@@ -48,7 +47,6 @@ class MarketScroller extends Component {
             scrollX,
         };
     }
-
 
 
     renderItem({ item, index }) {
@@ -70,7 +68,7 @@ class MarketScroller extends Component {
 
     renderCardFlatList() {
         return (
-            <View style={{ flex: 1}}>
+            <View style={{ flex: 1 }}>
                 <FlatList
                     horizontal
                     data={this.props.data}
@@ -83,10 +81,7 @@ class MarketScroller extends Component {
                     snapToInterval={FLAT_LIST_INTERVAL}
                     scrollEventThrottle={1}
                     onScroll={
-                        Animated.event([{ nativeEvent: { contentOffset: { x: this.state.scrollX } } }], {
-                            listener: () => {
-                            },
-                        })
+                        Animated.event([{ nativeEvent: { contentOffset: { x: this.state.scrollX } } }])
                     }
                     contentOffset={{ x: -CARD_OFFSET, y: 0 }}
                     contentInset={{

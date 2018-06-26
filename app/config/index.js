@@ -13,12 +13,12 @@ export default {
     isDev: true,
 
     persistStore: {
-        key: 'FANTASTIC',
+        key: 'FANTASTEC',
         debounce: 100,
     },
 
     // App Details
-    appName: 'Fantastic-TestApp',
+    appName: 'Fantastec-TestApp',
     appVersion: 'v0.0.1',
     defaultLanguage: 'en',
 
