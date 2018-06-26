@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Animated, Image } from 'react-native';
 
 // Modules
 // Actions
@@ -18,6 +18,12 @@ import styles from './styles';
 
 class ExchangeCard extends Component {
     static propTypes = {
+        itemIndex: PropTypes.number,
+        cardWidth: PropTypes.number,
+        cardMargin: PropTypes.number,
+        scrollX: PropTypes.any,
+        cardHeight: PropTypes.number,
+        photo: PropTypes.any,
     };
 
     static defaultProps = {
@@ -28,8 +34,54 @@ class ExchangeCard extends Component {
     }
 
     render() {
+        const { itemIndex, cardWidth, cardMargin, cardHeight } = this.props;
+        const scrollViewOffset = (AppConfig.window.width - cardWidth) / 2;
+        const cardSize = cardWidth + (cardMargin * 2);
         return (
-            <View />
+            <Animated.View
+                style={{
+                    width: cardWidth,
+                    height: cardHeight,
+                    borderRadius: 8,
+                    backgroundColor: AppStyle.COLOR_WHITE,
+                    alignSelf: 'center',
+                    justifyContent: 'flex-end',
+                    margin: cardMargin,
+                    transform: [
+                        {
+                            scaleX: this.props.scrollX.interpolate({
+                                inputRange: [
+                                    ((itemIndex - 2) * cardSize) - scrollViewOffset,
+                                    ((itemIndex - 1) * cardSize) - scrollViewOffset,
+                                    ((itemIndex) * cardSize) - scrollViewOffset,
+                                    ((itemIndex + 1) * cardSize) - scrollViewOffset,
+                                    ((itemIndex + 2) * cardSize) - scrollViewOffset,
+                                ],
+                                outputRange: [1, 1, 1.2, 1, 1],
+                                extrapolate: 'clamp',
+                            }),
+                        },
+                        {
+                            scaleY: this.props.scrollX.interpolate({
+                                inputRange: [
+                                    ((itemIndex - 2) * cardSize) - scrollViewOffset,
+                                    ((itemIndex - 1) * cardSize) - scrollViewOffset,
+                                    ((itemIndex) * cardSize) - scrollViewOffset,
+                                    ((itemIndex + 1) * cardSize) - scrollViewOffset,
+                                    ((itemIndex + 2) * cardSize) - scrollViewOffset,
+                                ],
+                                outputRange: [1, 1, 1.2, 1, 1],
+                                extrapolate: 'clamp',
+                            }),
+                        },
+                    ],
+                }}
+            >
+                <Image
+                    source={this.props.photo}
+                    style={{ width: cardWidth, height: cardHeight, borderRadius: 8 }}
+                />
+            </Animated.View>
         );
     }
 }

@@ -27,7 +27,8 @@ export default class NavigationConfig {
                 tabBarBackgroundColor: AppStyles.TAB_BAR_COLOR,
                 tabBarSelectedLabelColor: AppStyles.TAB_BAR_SELECTED_ICON,
                 tabBarTranslucent: true,
-                initialTabIndex: 0,
+                initialTabIndex: 2,
+                keepStyleAcrossPush: false
 
             },
             appStyle: {
@@ -36,10 +37,13 @@ export default class NavigationConfig {
                 navBarHidden: true,
                 screenBackgroundColor: 'transparent',
                 modalPresentationStyle: 'overCurrentContext',
+                keepStyleAcrossPush: false
             },
             navigatorStyle: {
                 modalPresentationStyle: 'overCurrentContext',
                 screenBackgroundColor: 'transparent',
+                keepStyleAcrossPush: false
+
             },
         };
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
-import { icons as TabIcons } from 'app/assets/TabBarIcons'
+import { icons as TabIcons } from 'app/assets/TabBarIcons';
+// Navbars
+import SwapNavbar from 'app/components/customTabBars/SwapNavbar';
 
 import AppWrapper from './AppWrapper';
 import Home from './Home';
@@ -8,7 +10,15 @@ import Album from './Album';
 import Market from './Market';
 import Spares from './Spares';
 import Store from './Store';
+import SwapCardScene from './SwapCardScene';
 
+
+
+const customNavbars = {
+    SwapNavbar: {
+        screen: SwapNavbar,
+    },
+};
 
 const scenes = {
     Home: {
@@ -25,6 +35,9 @@ const scenes = {
     },
     Store: {
         screen: Store,
+    },
+    SwapCardScene: {
+        screen: SwapCardScene,
     },
 };
 
@@ -61,6 +74,9 @@ export const tabs = {
 export function registerScreens(store, Provider) {
     Object.keys(scenes).forEach((scene) => {
         Navigation.registerComponent(scene, () => AppWrapper(scenes[scene].screen), store, Provider);
+    });
+    Object.keys(customNavbars).forEach((scene) => {
+        Navigation.registerComponent(scene, () => customNavbars[scene].screen, store, Provider);
     });
 }
 

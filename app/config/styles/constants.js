@@ -12,7 +12,7 @@ export const COLOR_GREY = 'rgb(179,183,193)';
 export const COLOR_GRAY_BLUE = 'rgb(90,97,117)';
 
 export const COLOR_BLUE_DARK = 'rgb(13,19,54)';
-
+export const COLOR_BLUE = 'rgb(22,30,84)';
 export const COLOR_GREEN_HOT = 'rgb(83,229,141)';
 
 export const TAB_BAR_COLOR = COLOR_BLUE_DARK;
