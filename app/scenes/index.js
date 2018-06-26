@@ -11,7 +11,7 @@ import Market from './Market';
 import Spares from './Spares';
 import Store from './Store';
 import SwapCardScene from './SwapCardScene';
-
+import HighlightScreen from './HighlightScreen';
 
 
 const customNavbars = {
@@ -38,6 +38,9 @@ const scenes = {
     },
     SwapCardScene: {
         screen: SwapCardScene,
+    },
+    HighlightScreen: {
+        screen: HighlightScreen,
     },
 };
 
